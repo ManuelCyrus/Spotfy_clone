@@ -1,0 +1,170 @@
+body{
+    background-color: black;
+    font-family: var(--font-dm-sans);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 12px;
+    width: 300px;
+}
+
+.sidebar_navigation{
+
+    background-color: #121212;
+    border-radius: 8px;
+    padding: 16px 0 0 16px;
+
+}
+
+.sidebar_navigation  .logo{
+    background-color: #121212;
+    /* display: flex; */
+    border-radius: 8px;
+    padding: 16px 0 0 16px;
+}
+
+.sidebar_navigation .logo img{
+    width: 80px;
+}
+.sidebar nav ul{
+    margin-top: 20px;
+    padding: 0 20px 10px 20px;
+}
+.sidebar nav ul li {
+    padding: 10px 0 ;
+}
+.sidebar nav ul li a{
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+   
+}
+
+.library{
+    background-color: #121212;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 4px 8px;
+    color: #b3b3b3;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.library .library_content{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.library .library_button{
+    display: flex;
+margin-right: 10px;
+color: #b3b3b3;
+background-color: transparent;
+border: 0px;
+font-size: 14px;
+font-weight: 700;
+
+text-align: center;
+text-decoration: none;
+text-transform: none;
+padding: 20px 10px;
+}
+.library .library_button .fa{
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: 300;
+    padding-right: 8px;
+}
+
+.library .library_content .fa-plus{
+    margin: 24px 10px;
+}
+
+.section_playlist{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #242424;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 8px 0px;
+    padding: 16px 20px;
+    border-radius: 8px;
+}
+
+.section_playlist .section_playlist_content{
+    display: flex;
+    flex-direction: column;
+}
+ .section_playlist_content .text{
+    padding-bottom: 14px;
+    color: #fff;
+    
+    
+}
+ .section_playlist_content .title{
+   font-weight: 700;
+
+}
+ .section_playlist_content .subtitle{
+   font-weight: 500;
+   font-size: 12px;
+
+}
+
+ .section_playlist_content .section_playlist_button{
+    display: flex;
+    justify-content: center;
+  background-color: #fff;
+  color: #000;
+  border-radius:20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: none;
+  padding: 10px;
+  margin-top: 12px;
+  border: 0px;
+  width: 113px;
+  
+
+}
+
+.sidebar .cookies{
+    margin: 25px 20px;
+}
+
+.sidebar .cookies a{
+    color: #b3b3b3;
+    font-weight: 500;
+    text-decoration: none;
+}
+.sidebar .cookies a:hover{
+    
+    text-decoration: underline;
+}
+
+.languages .languages_button{
+    background-color: transparent;
+    border: 1px solid #878787;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    align-items: center;
+    width: 170px;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+
