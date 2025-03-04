@@ -15,7 +15,7 @@
     border-radius: 8px;
 }
 
-.header_navigation .header_navigation{
+.header_navigation .navigation{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -51,7 +51,13 @@
     background-color: #242424;
     border-radius: 500px;
     border: 1px solid transparent;
+   transition: 0.5s ease-in;
+   
 }
+.header_search:hover{
+    outline: 2px solid white;
+}
+
 
 .header_search img{
     width: 16px;
@@ -62,11 +68,12 @@
 .header_search input{
     background:transparent;
     border: none;
-    padding: 0px 100px 12px;
+    padding: 0px 100px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     outline: none;
+    color: #fff;
 }
 
 .header_login .subscribe{
@@ -84,3 +91,18 @@
     font-weight: 700;
     border-radius: 40px;
 }
+
+/* artist  */
+
+.artists-container{
+    background-color: #242424;
+    padding: 3px;
+    position: absolute;
+    top:90px;
+    left: 320px;
+    width: 73%;
+    height: 415px;
+    border-radius: 4px;
+
+}
+
