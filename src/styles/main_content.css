@@ -117,6 +117,7 @@
 display: flex;
 gap: 20px;
 flex-wrap: wrap;
+margin-left: 15px;
 }
 .artists-container .card{
     background-color: #d11294;
@@ -125,6 +126,10 @@ flex-wrap: wrap;
     width: 15rem;
     height: 120px;
     overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+.artists-container .card:hover{
+transform: scale(1.1);
 }
 .artists-container .card .img-artist{
     width: 110px;
