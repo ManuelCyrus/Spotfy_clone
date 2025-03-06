@@ -4,5 +4,6 @@
 
     /* COLORS */
     ---bg-icon:#131313;
-    ---bg-arrow-color:rgba(0,0,0,0.7)
+    ---bg-arrow-color:rgba(0,0,0,0.7);
+    ---text-color:#e7e7e7;
 }

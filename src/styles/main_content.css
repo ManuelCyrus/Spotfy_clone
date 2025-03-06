@@ -96,13 +96,47 @@
 
 .artists-container{
     background-color: #242424;
-    padding: 3px;
+    padding: 10px;
     position: absolute;
     top:90px;
     left: 320px;
-    width: 73%;
+    width: 65%;
     height: 415px;
     border-radius: 4px;
+    overflow: hidden;
 
 }
 
+.artists-container .title-container{
+    color: var(---text-color);
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+.artists-container .artists-cards{
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+}
+.artists-container .card{
+    background-color: #d11294;
+    padding: 4px;
+    border-radius: 10px;
+    width: 15rem;
+    height: 120px;
+    overflow: hidden;
+}
+.artists-container .card .img-artist{
+    width: 110px;
+    margin-left: 147px;
+    transform: rotate(25deg);
+    margin-top: -16px;
+    border-radius: 4px;
+
+}
+.artists-container .card-title{
+    color: var(---text-color);
+    font-size: 24px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
