@@ -103,8 +103,23 @@
     width: 65%;
     height: 415px;
     border-radius: 4px;
-    overflow: hidden;
+    overflow-y: scroll;
+    
 
+}
+.artists-container::-webkit-scrollbar{
+    width: 15px;
+     
+}
+.artists-container::-webkit-scrollbar-track{
+    background-color: #242424;  
+     
+}
+.artists-container::-webkit-scrollbar-thumb{
+    background-color: rgb(185, 185, 185);
+    border-radius: 4px;  
+    height: 2px;
+       
 }
 
 .artists-container .title-container{
@@ -145,3 +160,5 @@ transform: scale(1.1);
     margin-left: 15px;
     margin-top: 20px;
 }
+
+
