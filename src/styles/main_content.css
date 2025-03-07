@@ -162,3 +162,45 @@ transform: scale(1.1);
 }
 
 
+/* search card */
+
+.artists-result-search{
+    background-color: #2f2d2d;
+    padding: 25px;
+    border-radius: 4px;
+    width: 320px;
+}
+.artists-result-search img{
+    width: 110px;
+    border-radius: 5px;
+}
+.artists-result-search h1{
+    color: #fff;
+    font-size: 34px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    
+}
+.artists-result-search p{
+    color: #d6d6d6;
+    
+}
+
+.artist-info{
+    display: flex;
+    justify-content: space-between;
+}
+.artist-info i{
+    background-color: #429442;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+.artist-info i:hover{
+    transform: scale(1.1);
+}
+
