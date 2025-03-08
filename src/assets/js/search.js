@@ -1,39 +1,56 @@
-
-
-const token ='BQB7vDluMnfmar-IbMvYhX2or6mox2QS2eB9DVy4HSm6Z16UuKUK3hKTeLAq79ahLBoGFEsIvo9i-p-t_Ecg-CD6_PcZisBN8qXIeHoET3BtzQ2qVRfXhRBSwcLuJCB5OxVjAq1vVVTpmlTgzMVl_veeZk8igoMR00GiS94ndj5vb6S2sflLyvXaF3resJZAKhSGLdVru9NWxRs3nSRp6LHUnEPsmuQBqFcOl1WsEYhdzdR1FekLHCh-n71PdITRWybhleEwc6lRmysC8W970s94ela_AwgLzB4SBDzrxlxy2S2aGtO5usCu';
+const clientId = "d4061a7effe84687b752e3c965c00eb8";
+const clientSecret = "5a171d14becb4c2d82f7e5cdbe7a0a19";
 
 const pesquisa = document.getElementById("search_input");
 
 pesquisa.addEventListener("keydown", () => {
-    const query = pesquisa.value.trim(); // Pega o valor digitado sem espaços extras
-console.log("olaa")
-    if (query.length < 2) return; 
+    const query = pesquisa.value.trim();
+    if (query.length < 2) return;
 
-    fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=artist`, {
+
+    // 1 Pegando o token primeiro
+    fetch("https://accounts.spotify.com/api/token", {
+        method: "POST",
         headers: {
-            "Authorization": `Bearer ${token}`,
-            "Content-Type": "application/json"
-        }
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "Basic " + btoa(clientId + ":" + clientSecret) // Gera o token corretamente
+        },
+        body: "grant_type=client_credentials"
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error("Erro na API: " + response.status);
+            throw new Error(" Erro na autenticação: " + response.status);
         }
         return response.json();
     })
-    .then(data => {
-        console.log(data.artists.items);
-        
-        if(data.artists.items.length>0){
-            displayArtists(data.artists.items)
-            displayTrack(data.artists.items[0].id)   
+    .then(authData => {
+        const token = authData.access_token;  
+        return fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=artist,track`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error(" Erro ao buscar artistas: " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => ({ data, token })); 
+    })
+    .then(({ data, token }) => {
+        if (data.artists && data.artists.items.length > 0) {
+            displayArtists(data.artists.items);
+            displayTrack(data.artists.items[0].id, token);
+            console.log(data)
+        } else {
+            console.log("Nenhum artista encontrado.");
         }
-
     })
     .catch(error => {
-        console.error("Erro ao buscar artistas:", error);
+        console.error("Erro:", error);
     });
 });
+
 
 function displayArtists(result){
     const artists_section=document.querySelector('.artists-card-section')
@@ -79,66 +96,76 @@ function displayArtists(result){
 }
     // fechar o displayArtist
 
-function displayTrack(idArtist){
-    const url = `https://api.spotify.com/v1/artists/${idArtist}/top-tracks?market=US`;
-
-
-    fetch(url,{
-        headers: {
-            "Authorization": `Bearer ${token}`
+    function displayTrack(idArtist, token) {
+        const url = `https://api.spotify.com/v1/artists/${idArtist}/top-tracks?market=US`;
+    
+        fetch(url, {
+            headers: {
+                "Authorization": `Bearer ${token}`
             }
-    }).then((response)=>response.json()).then((data)=>{
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.tracks && data.tracks.length > 0) {
+                const tracks = data.tracks;
+                const artistsMusicContainer = document.querySelector('.artists-music');
+    
+                console.log(artistsMusicContainer);
+    
+                if (!artistsMusicContainer) {
+                    console.error("Erro: Elemento '.artists-music' não encontrado no DOM.");
+                    return;
+                }
+    
+                // Limpa músicas antigas antes de adicionar novas
+                artistsMusicContainer.innerHTML = "";
+    
+                tracks.forEach(track => {
+                    const trackElement = document.createElement("div");
+                    trackElement.classList.add('artist-music-side');
+    
+                    const img = document.createElement('img');
+                    img.classList.add('artist-music-side-img');
+                    img.src = track.album.images.length > 0 ? track.album.images[0].url : 'src/assets/img/1.jpg';
+    
+                    const trackInfo = document.createElement('div');
+    
+                    const title = document.createElement('h1');
+                    title.classList.add('artist-music-side-title');
+                    title.textContent = track.name;
+    
+                    const nameArtist = document.createElement("p");
+                    nameArtist.classList.add('artist-music-side-name');
+                    nameArtist.textContent = track.artists[0].name;
 
+                    const container=document.createElement('div')
+                    container.classList.add('all_song')
 
-        // dados para o Html
+                    const duration=document.createElement('p')
+                    duration.classList.add('duration')
+                    duration.textContent="01:3"
+    
 
-        if(data.tracks.length>0){
-            const tracks=data.tracks
-            const artistsMusicContainer=document.querySelector('.artists-music')
-            
-            console.log(artistsMusicContainer)
+                    trackInfo.appendChild(title);
+                    trackInfo.appendChild(nameArtist);
+    
+                    
+                    trackElement.appendChild(img);
+                    trackElement.appendChild(trackInfo);
+    
+                    container.appendChild(trackElement)
+                    container.appendChild(duration)
 
-            if (!artistsMusicContainer) {
-                console.error("Erro: Elemento '.artists-music' não encontrado no DOM.");
-                return;
+                    artistsMusicContainer.appendChild(container);
+                    
+                });
+            } else {
+                console.log("Nenhuma música encontrada.");
             }
-
-            tracks.forEach(track => {
-                const trackElement=document.createElement("div")
-                trackElement.classList.add('artist-music-side')
-                const img=document.createElement('img')
-                img.classList.add('artist-music-side-img')
-                img.src = track.album.images.length > 0 ? track.album.images[0].url : 'src/assets/img/1.jpg';
-
-                const trackInfo=document.createElement('div')
-
-                const title=document.createElement('h1')
-                title.classList.add('artist-music-side-title')
-                title.textContent=track.name
-
-                const nameArtist=document.createElement("p")
-                nameArtist.classList.add('artist-music-side-name')
-                nameArtist.textContent=track.artists[0].name
-
-                
-                trackInfo.appendChild(title);
-        trackInfo.appendChild(nameArtist);
-
-        trackElement.appendChild(img);
-        trackElement.appendChild(trackInfo);
-
-        artistsMusicContainer.appendChild(trackElement);
-                
-
-            });
-            
-        }
-
-
-    }).catch(error => console.error("Erro ao buscar artista:", error))
-
-}
-
+        })
+        .catch(error => console.error("Erro ao buscar músicas do artista:", error));
+    }
+    
 
 // Função para exibir os artistas na tela
 // function displayArtists(artists) {

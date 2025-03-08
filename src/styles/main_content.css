@@ -214,24 +214,16 @@ transform: scale(1.1);
     color: #fff;
     font-size: 24px;
     margin-bottom: 12px;
+    margin-top: 34px;
    
 }
-.artists-music{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-    gap: 4px;
-    width: 100%;
-}
+
 .artists-music .duration{
     margin-right: 60px;
 }
 .artists-music{
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-    align-items: center;
     color: #fff;
     gap: 4px;
     width: 100%;
@@ -240,17 +232,35 @@ transform: scale(1.1);
     display: flex;
     gap: 10px;
 }
+.all_song{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    margin-left: 15px;
+    align-items: center;
+}
 .artist-music-side img{
     width: 45px;
+    height: 45px;
     border-radius: 3px;
 }
 .artist-music-side h1{
     margin-top: 5px;
-    font-size: 20px;
+    font-size: 17px;
 }
 .artist-music-side p{
     color: #959595;
-    margin-top: 3px;
+    margin-top: 2px;
+    font-size: 14px;
+}
+.artist-music-side p::before{
+    content: 'E';
+    color: rgb(41, 41, 41);
+    margin-right: 3px;
+    background-color: #8e8e8e;
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 2px;
 }
 
 /* other artist */
@@ -307,3 +317,4 @@ transform: scale(1.1);
     width: 180px;
     border-radius: 4px;
 }
+
