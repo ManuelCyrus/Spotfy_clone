@@ -204,3 +204,106 @@ transform: scale(1.1);
     transform: scale(1.1);
 }
 
+/* músicas de artistas */
+
+.artists-music-content {
+    width: 100%;
+   
+}
+.artists-music-content h1{
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 12px;
+   
+}
+.artists-music{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    gap: 4px;
+    width: 100%;
+}
+.artists-music .duration{
+    margin-right: 60px;
+}
+.artists-music{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    gap: 4px;
+    width: 100%;
+}
+.artist-music-side {
+    display: flex;
+    gap: 10px;
+}
+.artist-music-side img{
+    width: 45px;
+    border-radius: 3px;
+}
+.artist-music-side h1{
+    margin-top: 5px;
+    font-size: 20px;
+}
+.artist-music-side p{
+    color: #959595;
+    margin-top: 3px;
+}
+
+/* other artist */
+
+.artists-other-container-content{
+    display: flex;
+    gap: 6px;
+}
+.artists-other-container h1{
+   color: #fff;
+   font-size: 24px;
+   margin: 5px;
+}
+
+.artist-other {
+    background-color: #3b3b3b;
+    padding: 20px;
+    border-radius:5px ;
+    color: #fff;
+}
+.artist-other img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.artist-other h1{
+    font-size: 20px;
+    margin-top: 6px;
+}
+.artist-other p{
+    color: #bebebe;
+    margin-top: 6px;
+}
+
+/* álbuns artistas */
+
+.artists-album-container{
+    padding: 10px;
+    color: #fff;
+}
+.artists-album-container h1{
+    font-size: 24px;
+    margin-bottom: 9px;
+}
+.artists-album-container h2{
+    font-size: 20px;
+    margin-bottom: 8px;
+    margin-top: 5px;
+}
+.artists-album-container p{
+    color: #bababa;
+}
+.artists-album-container img{
+    width: 180px;
+    border-radius: 4px;
+}

@@ -1,5 +1,4 @@
 
-    const token = 'BQB_Da5qh7-a9Q03QAycgn3VucFK-tRNKVKCG0GY9SH0NnkKxx4144ksqsbtcuDnEWJU5YQkg2LjfZ-K56lNusFd7lks_5XgLjXFW4AgZyx-GCYo9S4hxaa_EwtjnPcNf6Dt0NgfI86rE6IR_F4C6a3e2LPz6_oB1iEla9w9ylcOhBPrs6V-p1AC5ltEzvOkqr4qasXfcGdy9ifbxsnH9khR3uAzAHaf1E5CUSjiOFj0W5ygSK26CSWSl7m2asYd5-nEIBYN7t-IVQcC5c5InwnG8XGJdiZe17IZV_khSsSVGBMdWxwNkiR_';
 
     fetch("https://api.spotify.com/v1/browse/categories", {
         headers: {
